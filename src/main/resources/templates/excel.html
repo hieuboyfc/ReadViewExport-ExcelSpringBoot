@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>View Excel</title>
+</head>
+<body>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Mã khách hàng</th>
+            <th>Tên khách hàng</th>
+            <th>Địa chỉ</th>
+            <th>Email</th>
+            <th>Số điện thoại</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="item : ${lstCustomer}">
+            <tr>
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.address}"></td>
+                <td th:text="${item.email}"></td>
+                <td th:text="${item.numberPhone}"></td>
+            </tr>
+        </th:block>
+
+        </tbody>
+
+    </table>
+</div>
+<div><a th:href="@{/excel/download}">Export Excel</a></div>
+</body>
+</html>
